@@ -7,8 +7,6 @@ import copy
 import logging
 import math
 
-from os.path import join as pjoin
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -30,6 +28,9 @@ FC_0 = "MlpBlock_3/Dense_0"
 FC_1 = "MlpBlock_3/Dense_1"
 ATTENTION_NORM = "LayerNorm_0"
 MLP_NORM = "LayerNorm_2"
+
+def pjoin(*args):
+    return "/".join(args)
 
 def np2th(weights, conv=False):
     """Possibly convert HWIO to OIHW."""
